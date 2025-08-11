@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A2A协议演示项目</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 A2A协议演示项目</h1>
+            <p>AI代理间通信协议演示 - 了解未来AI协作的新方式</p>
+        </header>
+
+        <div class="main-content">
+            <!-- 代理管理区域 -->
+            <div class="section">
+                <h2>📋 代理管理</h2>
+                <div class="agent-form">
+                    <input type="text" id="agentName" placeholder="代理名称" required>
+                    <select id="agentType">
+                        <option value="assistant">助手型代理</option>
+                        <option value="specialist">专业型代理</option>
+                        <option value="coordinator">协调型代理</option>
+                        <option value="researcher">研究型代理</option>
+                    </select>
+                    <input type="text" id="agentCapabilities" placeholder="能力描述 (用逗号分隔)">
+                    <button onclick="registerAgent()">注册代理</button>
+                </div>
+                
+                <div class="agents-list">
+                    <h3>已注册的代理</h3>
+                    <div id="agentsList"></div>
+                </div>
+            </div>
+
+            <!-- 消息通信区域 -->
+            <div class="section">
+                <h2>💬 消息通信</h2>
+                <div class="message-form">
+                    <select id="senderAgent">
+                        <option value="">选择发送者</option>
+                    </select>
+                    <select id="receiverAgent">
+                        <option value="">选择接收者</option>
+                        <option value="broadcast">广播给所有代理</option>
+                    </select>
+                    <textarea id="messageContent" placeholder="输入消息内容"></textarea>
+                    <button onclick="sendMessage()">发送消息</button>
+                </div>
+                
+                <div class="messages-list">
+                    <h3>消息历史</h3>
+                    <div id="messagesList"></div>
+                </div>
+            </div>
+
+            <!-- 实时通信区域 -->
+            <div class="section">
+                <h2>🔌 实时连接</h2>
+                <div class="connection-form">
+                    <select id="connectAgent">
+                        <option value="">选择要连接的代理</option>
+                    </select>
+                    <button onclick="connectWebSocket()">建立连接</button>
+                    <button onclick="disconnectWebSocket()">断开连接</button>
+                </div>
+                
+                <div class="connection-status">
+                    <h3>连接状态</h3>
+                    <div id="connectionStatus">未连接</div>
+                </div>
+            </div>
+
+            <!-- 协议信息区域 -->
+            <div class="section">
+                <h2>📚 A2A协议说明</h2>
+                <div class="protocol-info">
+                    <h3>什么是A2A协议？</h3>
+                    <p>A2A（Agent-to-Agent）是一种新兴的AI协议，允许不同的AI代理之间进行标准化通信和协作。</p>
+                    
+                    <h3>核心特性：</h3>
+                    <ul>
+                        <li><strong>标准化通信</strong>：统一的消息格式和协议规范</li>
+                        <li><strong>实时协作</strong>：支持WebSocket实时通信</li>
+                        <li><strong>能力发现</strong>：代理可以声明和发现彼此的能力</li>
+                        <li><strong>灵活路由</strong>：支持点对点和广播通信</li>
+                    </ul>
+                    
+                    <h3>应用场景：</h3>
+                    <ul>
+                        <li>多AI系统协作</li>
+                        <li>分布式AI任务处理</li>
+                        <li>AI服务编排</li>
+                        <li>智能工作流自动化</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html> 
